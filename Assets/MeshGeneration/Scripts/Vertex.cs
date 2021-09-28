@@ -1,6 +1,6 @@
 using UnityEngine;
 
-// Pseudoimplementierung - nicht die tats‰chliche API
+// Pseudoimplementierung - nicht die tats√§chliche API
 public struct PointMesh {
     Vertex[] vertices;
     Vector1Int[] points;
@@ -20,7 +20,7 @@ public struct QuadMesh {
 
 
 
-// Pseudoimplementierung - nicht die tats‰chliche API
+// Pseudoimplementierung - nicht die tats√§chliche API
 public struct Vertex {
     public Vector3 position;
     public Vector3 normal;
