@@ -6,6 +6,8 @@ public class Cannon : MonoBehaviour {
     Rigidbody projectilePrefab = default;
     [SerializeField, Range(0, 100000)]
     float shootForce = 1000;
+    [SerializeField, Range(0, 100000)]
+    float shootTorque = 10;
     [SerializeField, Range(0, 100)]
     float shootInterval = 1;
 
@@ -18,5 +20,6 @@ public class Cannon : MonoBehaviour {
     void Shoot() {
         var projectileInstance = Instantiate(projectilePrefab, transform);
         projectileInstance.AddForce(shootForce * transform.forward, ForceMode.VelocityChange);
+        projectileInstance.AddTorque(shootTorque * transform.forward, ForceMode.VelocityChange);
     }
 }
