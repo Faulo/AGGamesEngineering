@@ -4,11 +4,11 @@ A repository with lots of different little gamedev example projects.
 ## List of projects
 These are the projects contained in this repostiory:
 
-### MeshGeneration
+### [MeshGeneration](Assets/MeshGeneration)
 - Creates a Unity [Mesh](https://docs.unity3d.com/ScriptReference/Mesh.html) via C#
 - Compares lighting and rendering of a cube with 24 vertices with one with just 8 vertices
 
-### UniversalRenderPipeline
+### [UniversalRenderPipeline](Assets/UniversalRenderPipeline)
 - Unity's default URP project
 
 ### [Input](Assets/Input) 
