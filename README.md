@@ -11,7 +11,7 @@ These are the projects contained in this repostiory:
 ### UniversalRenderPipeline
 - Unity's default URP project
 
-### Input 
+### [Input](Assets/Input) 
 - Example code for Unity's [InputSystem](https://docs.unity3d.com/Packages/com.unity.inputsystem)
 
 ## Third Party Credits
