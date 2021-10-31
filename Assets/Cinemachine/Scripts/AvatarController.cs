@@ -27,6 +27,9 @@ public class AvatarController : MonoBehaviour {
 
     float currentAcceleration;
     bool jumpButtonWasReleased = true;
+    float currentMovement = 0f;
+    bool jumpButtonPressed = false;
+    bool jumpButtonReleased = false;
 
     protected void OnEnable() {
         playerActions = new PlayerInputActions();
@@ -42,25 +45,25 @@ public class AvatarController : MonoBehaviour {
     }
 
     protected void Update() {
+        currentMovement = playerActions.Player.Move.ReadValue<float>();
+        jumpButtonPressed = playerActions.Player.Jump.phase == InputActionPhase.Performed;
+        jumpButtonReleased = playerActions.Player.Jump.phase == InputActionPhase.Waiting;
+    }
+    protected void FixedUpdate() {
 
         isGrounded = characterController.isGrounded;
-        float xMovement = playerActions.Player.Move.ReadValue<float>();
         var locationCollider = Vector3.zero;
 
-        bool jumpButtonPressed = playerActions.Player.Jump.phase == InputActionPhase.Performed;
-        bool jumpButtonReleased = playerActions.Player.Jump.phase == InputActionPhase.Waiting;
-
-
         var tempVelocity = characterController.velocity;
-        tempVelocity.x = Mathf.SmoothDamp(tempVelocity.x, xMovement * maximumSpeed, ref currentAcceleration,
+        tempVelocity.x = Mathf.SmoothDamp(tempVelocity.x, currentMovement * maximumSpeed, ref currentAcceleration,
             accelerationDuration);
 
         tempVelocity.y += Physics.gravity.y * Time.deltaTime;
 
-        AdjustSpriteOrientation(xMovement);
+        AdjustSpriteOrientation(currentMovement);
 
         isWalking = false;
-        if ((xMovement > 0 || xMovement < 0) && isGrounded) {
+        if ((currentMovement > 0 || currentMovement < 0) && isGrounded) {
             isWalking = true;
         }
 
