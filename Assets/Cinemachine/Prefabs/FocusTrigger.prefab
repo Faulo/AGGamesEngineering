@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7699171163073770544}
   - component: {fileID: 7699171163073770547}
   - component: {fileID: 7699171163073770546}
-  - component: {fileID: 7699171163073770549}
   - component: {fileID: 7699171163073770545}
+  - component: {fileID: 5857156946091636942}
   m_Layer: 0
   m_Name: FocusTrigger
   m_TagString: Untagged
@@ -56,22 +56,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7699171163073770549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7699171163073770548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f57dd2516030c264da44285ff7780481, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetGroup: {fileID: 0}
-  newTarget: {fileID: 0}
-  newWeight: 1
-  newRadius: 1
 --- !u!54 &7699171163073770545
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -88,3 +72,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 1
+--- !u!114 &5857156946091636942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7699171163073770548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57dd2516030c264da44285ff7780481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetGroup: {fileID: 0}
+  newTarget: {fileID: 0}
+  newWeight: 1
+  newRadius: 1
