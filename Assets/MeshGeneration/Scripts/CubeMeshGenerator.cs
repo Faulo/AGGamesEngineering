@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MeshGeneration.Scripts {
+namespace AGGE.MeshGeneration {
     public class CubeMeshGenerator : MonoBehaviour {
         [SerializeField]
         MeshCollider attachedCollider = default;
