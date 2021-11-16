@@ -8,29 +8,16 @@ namespace AGGE.Cinemachine {
         AvatarController controller = default;
 
         [SerializeField]
-        string isWalkingStateName = default;
+        string isWalkingStateName = string.Empty;
         [SerializeField]
-        string isGroundedStateName = default;
+        string isGroundedStateName = string.Empty;
         [SerializeField]
-        string isJumpingStateName = default;
+        string isJumpingStateName = string.Empty;
 
         void Update() {
-            if (controller.isWalking) {
-                animator.SetBool(isWalkingStateName, true);
-            } else {
-                animator.SetBool(isWalkingStateName, false);
-            }
-            if (controller.isJumping) {
-                animator.SetBool(isJumpingStateName, true);
-            } else {
-                animator.SetBool(isJumpingStateName, false);
-            }
-
-            if (controller.isGrounded) {
-                animator.SetBool(isGroundedStateName, true);
-            } else {
-                animator.SetBool(isGroundedStateName, false);
-            }
+            animator.SetBool(isWalkingStateName, controller.isWalking);
+            animator.SetBool(isJumpingStateName, controller.isJumping);
+            animator.SetBool(isGroundedStateName, controller.isGrounded);
         }
     }
 }

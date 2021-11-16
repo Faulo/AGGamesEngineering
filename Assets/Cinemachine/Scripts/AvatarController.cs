@@ -93,11 +93,11 @@ namespace AGGE.Cinemachine {
         }
 
         void AdjustSpriteOrientation(float movement) {
-            if (movement > 0) {
-                attachedRenderer.flipX = false;
-            } else if (movement < 0) {
-                attachedRenderer.flipX = true;
-            }
+            attachedRenderer.flipX = movement switch {
+                > 0 => false,
+                < 0 => true,
+                _ => attachedRenderer.flipX,
+            };
         }
     }
 }
