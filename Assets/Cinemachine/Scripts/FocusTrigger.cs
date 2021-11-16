@@ -18,7 +18,7 @@ public class FocusTrigger : MonoBehaviour {
                 temp.Add(member.target);
                 targetGroup.RemoveMember(member.target);
             }
-            
+
             foreach (var target in temp) {
                 targetGroup.AddMember(target, newWeight, newRadius);
             }
