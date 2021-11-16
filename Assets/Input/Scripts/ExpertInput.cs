@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Input.Scripts {
+namespace AGGE.Input {
     public class ExpertInput : MonoBehaviour {
         [SerializeField]
         GameObject referencedObject = default;

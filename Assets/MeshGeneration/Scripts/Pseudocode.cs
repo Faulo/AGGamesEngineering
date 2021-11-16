@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Pseudocode {
+namespace AGGE.MeshGeneration.Pseudocode {
     // Pseudoimplementierung - nicht die tatsächliche API
     public struct PointMesh {
         Vertex[] vertices;

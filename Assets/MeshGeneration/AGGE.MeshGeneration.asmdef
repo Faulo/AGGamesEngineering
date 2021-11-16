@@ -1,6 +1,6 @@
 {
-    "name": "MeshGeneration",
-    "rootNamespace": "",
+    "name": "AGGE.MeshGeneration",
+    "rootNamespace": "AGGE.MeshGeneration",
     "references": [
         "GUID:75469ad4d38634e559750d17036d5f7c",
         "GUID:507d80cf36f8258488bde8c39deefd3a"
