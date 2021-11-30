@@ -11,11 +11,14 @@ These are the projects contained in this repostiory:
 ### [UniversalRenderPipeline](Assets/UniversalRenderPipeline)
 - Unity's default URP project
 
-### [Input](Assets/Input) 
+### [Input](Assets/Input)
 - Example code for Unity's [InputSystem](https://docs.unity3d.com/Packages/com.unity.inputsystem)
 
-### [Cinemachine](Assets/Cinemachine) 
+### [Cinemachine](Assets/Cinemachine)
 - [Cinemachine](https://docs.unity3d.com/Packages/com.unity.cinemachine@2.1/manual/index.html) examples for 2D projects.
+
+### [LINQ](Assets/LINQ)
+- Basic [LINQ](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/) examples.
 
 ## Third Party Credits
 - [Slothsoft's Unity Extensions](https://openupm.com/packages/net.slothsoft.unity-extensions/)

@@ -1,0 +1,16 @@
+{
+    "name": "AGGE.LINQ",
+    "rootNamespace": "AGGE.LINQ",
+    "references": [
+        "GUID:507d80cf36f8258488bde8c39deefd3a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
