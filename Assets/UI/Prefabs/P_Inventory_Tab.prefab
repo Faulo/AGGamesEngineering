@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 9205342510591461189}
   - component: {fileID: 9205342510591461190}
   - component: {fileID: 7635136251190826259}
+  - component: {fileID: 5772719563069796409}
   m_Layer: 5
   m_Name: P_Inventory_Tab
   m_TagString: Untagged
@@ -255,5 +256,26 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 9205342510591461190}
   m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &5772719563069796409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9205342510591461184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa15982f42a1f3468290831d789b5ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  background: {fileID: 0}
+  tabGroup: {fileID: 0}
+  text: {fileID: 5479057227932523361}
+  onTabSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  onTabDeselected:
     m_PersistentCalls:
       m_Calls: []
