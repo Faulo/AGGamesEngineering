@@ -5,12 +5,12 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Image))]
-public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, IPointerExitHandler {
+public class TabMenuButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, IPointerExitHandler {
     [HideInInspector]
     public Image background = default;
 
     [SerializeField]
-    TabGroup tabGroup = default;
+    TabMenuGroup tabGroup = default;
     [SerializeField]
     public TextMeshProUGUI text = default;
 

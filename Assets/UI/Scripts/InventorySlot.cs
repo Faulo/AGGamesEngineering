@@ -1,11 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class InventorySlot : MonoBehaviour
-{
-    [SerializeField]
-    bool isEmpty = true;
+public class InventorySlot : MonoBehaviour {
     [SerializeField]
     Item item = default;
 
@@ -13,10 +8,7 @@ public class InventorySlot : MonoBehaviour
     Item currentItemInstance = default;
 
     protected void Start() {
-        if(!item) {
-            isEmpty = true;
-        } else {
-            isEmpty = false;
+        if (item) {
             var itemInstance = Instantiate(item);
             itemInstance.gameObject.transform.SetParent(transform);
             itemInstance.transform.localPosition = Vector3.zero;
@@ -26,8 +18,7 @@ public class InventorySlot : MonoBehaviour
     }
 
     protected void Update() {
-        if(item && item != currentItem) {
-            isEmpty = false;
+        if (item && item != currentItem) {
             Destroy(currentItemInstance);
             var itemInstance = Instantiate(item);
             itemInstance.gameObject.transform.SetParent(transform);
@@ -36,8 +27,6 @@ public class InventorySlot : MonoBehaviour
             itemInstance.GetComponent<RectTransform>().offsetMin = Vector2.zero;
             currentItem = item;
             currentItemInstance = itemInstance;
-        } else if(!item){
-            isEmpty = true;
         }
     }
 }

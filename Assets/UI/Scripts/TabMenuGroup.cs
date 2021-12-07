@@ -2,11 +2,10 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
-using UnityEngine.UI;
 
-public class TabGroup : MonoBehaviour {
+public class TabMenuGroup : MonoBehaviour {
     [SerializeField]
-    List<TabButton> tabButtons = default;
+    List<TabMenuButton> tabButtons = default;
     [SerializeField]
     List<GameObject> objectsToSwap = default;
     [SerializeField]
@@ -20,7 +19,7 @@ public class TabGroup : MonoBehaviour {
     [SerializeField]
     Color tabIdleFontColor = default;
 
-    TabButton selectedTab;
+    TabMenuButton selectedTab;
 
     protected void Start() {
         OnTabSelected(tabButtons.First());
@@ -43,7 +42,7 @@ public class TabGroup : MonoBehaviour {
         }
     }
 
-    public void OnTabEnter(TabButton button) {
+    public void OnTabEnter(TabMenuButton button) {
         Assert.IsTrue(button);
         ResetTabs();
         if (selectedTab == null || button != selectedTab) {
@@ -51,12 +50,12 @@ public class TabGroup : MonoBehaviour {
         }
     }
 
-    public void OnTabExit(TabButton button) {
+    public void OnTabExit(TabMenuButton button) {
         Assert.IsTrue(button);
         ResetTabs();
     }
 
-    public void OnTabSelected(TabButton button) {
+    public void OnTabSelected(TabMenuButton button) {
         Assert.IsTrue(button);
         if (selectedTab) {
             selectedTab.Deselect();

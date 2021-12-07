@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryTab : MonoBehaviour
-{
+public class InventoryTab : MonoBehaviour {
     [SerializeField]
     GameObject contentPanel = default;
 
