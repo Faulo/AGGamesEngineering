@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2125851103194399053}
   - component: {fileID: 4487446517115204557}
   - component: {fileID: 4855621132216519323}
+  - component: {fileID: 5923812990541007298}
   m_Layer: 5
   m_Name: P_Inventory_Slot_Modern
   m_TagString: Untagged
@@ -61,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.026624972, g: 0.019717934, b: 0.033263925, a: 1}
+  m_Color: {r: 0.52954656, g: 0.057685718, b: 0.7983984, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -90,7 +91,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b411d1e0ede363d49a3892b4888bd595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEmpty: 1
   item: {fileID: 0}
 --- !u!114 &4855621132216519323
 MonoBehaviour:
@@ -105,4 +105,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 2125851103194399053}
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 0.52954656, g: 0.057685718, b: 0.7983984, a: 1}
+--- !u!225 &5923812990541007298
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125851103194399055}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
