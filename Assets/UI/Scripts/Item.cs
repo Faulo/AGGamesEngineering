@@ -20,11 +20,11 @@ namespace AGGE.UI {
         }
         public void OnPointerDown(PointerEventData eventData) {
             transform.SetParent(mainCanvas.transform);
-            transform.SetAsLastSibling();
+            //transform.SetAsLastSibling();
+            itemImage.raycastTarget = false;
         }
 
         public void OnDrag(PointerEventData eventData) {
-            itemImage.raycastTarget = false;
             itemRectTransfrom.anchoredPosition += eventData.delta / mainCanvas.scaleFactor;
         }
 
