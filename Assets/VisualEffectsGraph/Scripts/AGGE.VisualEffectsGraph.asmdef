@@ -2,7 +2,8 @@
     "name": "VisualEffectsGraph",
     "rootNamespace": "AGGE.VisualEffectsGraph",
     "references": [
-        "GUID:d04eb9c554ad44ceab303cecf0c0cf82"
+        "GUID:d04eb9c554ad44ceab303cecf0c0cf82",
+        "GUID:75469ad4d38634e559750d17036d5f7c"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
