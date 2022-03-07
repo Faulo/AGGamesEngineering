@@ -19,9 +19,9 @@ These are the projects contained in this repostiory:
 
 ### [3D Character Controller](Assets/CharacterController3D)
 - Different approaches for implementing a basic character controller:
-  - The [Transform](https://docs.unity3d.com/ScriptReference/Transform.html) component.
-  - The [Rigidbody](https://docs.unity3d.com/ScriptReference/Rigidbody.html) component.
-  - The [CharacterController](https://docs.unity3d.com/ScriptReference/CharacterController.html) component.
+  - Via the [Transform](https://docs.unity3d.com/ScriptReference/Transform.html) component.
+  - Via the [Rigidbody](https://docs.unity3d.com/ScriptReference/Rigidbody.html) component.
+  - Via the [CharacterController](https://docs.unity3d.com/ScriptReference/CharacterController.html) component.
 
 ### [Cinemachine](Assets/Cinemachine)
 - [Cinemachine](https://docs.unity3d.com/Packages/com.unity.cinemachine@2.1/manual/index.html) examples for 2D projects.
