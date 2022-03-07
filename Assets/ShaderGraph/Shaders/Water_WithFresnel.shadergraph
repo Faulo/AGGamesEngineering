@@ -2713,7 +2713,7 @@
     "m_Group": {
         "m_Id": ""
     },
-    "m_Name": "WaterVertexSub",
+    "m_Name": "Wave_Complex",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
@@ -3148,7 +3148,7 @@
     "m_Group": {
         "m_Id": ""
     },
-    "m_Name": "WaterVertexSub",
+    "m_Name": "Wave_Complex",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
@@ -3629,7 +3629,7 @@
     "m_Group": {
         "m_Id": ""
     },
-    "m_Name": "WaterVertexSub",
+    "m_Name": "Wave_Complex",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
