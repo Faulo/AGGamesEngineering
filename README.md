@@ -9,7 +9,7 @@ These are the projects contained in this repostiory:
 - Examples of design patterns.
 
 ### [2D Character Controller](Assets/CharacterController3D)
-- The jumping prototype by Martin Fasterholdt for his thesis [You Say Jump, I Say How High?](http://www.digra.org/digital-library/publications/you-say-jump-i-say-how-high-operationalising-the-game-feel-of-jumping/):
+- The jumping prototype by Martin Fasterholdt for his thesis [You Say Jump, I Say How High](http://www.digra.org/digital-library/publications/you-say-jump-i-say-how-high-operationalising-the-game-feel-of-jumping/).
 - It contains re-implementations for the character controllers of:
   - Super Mario Bros. 3 (Nintendo 1988)
   - Spelunky (Mossmouth 2008)
