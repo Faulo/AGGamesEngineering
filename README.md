@@ -23,5 +23,11 @@ These are the projects contained in this repostiory:
 ### [ShaderGraph](Assets/ShaderGraph)
 - Different examples for water shading using [Unity's Shader Graph](https://unity.com/features/shader-graph).
 
+### [CharacterController](Assets/CharacterController)
+- Different approaches for implementing a basic character controller:
+- The [Transform](https://docs.unity3d.com/ScriptReference/Transform.html) component
+- The [Rigidbody](https://docs.unity3d.com/ScriptReference/Rigidbody.html) component
+- The [CharacterController](https://docs.unity3d.com/ScriptReference/CharacterController.html) component
+
 ## Third Party Credits
 - [Slothsoft's Unity Extensions](https://openupm.com/packages/net.slothsoft.unity-extensions/)
