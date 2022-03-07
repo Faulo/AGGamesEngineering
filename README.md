@@ -24,7 +24,7 @@ These are the projects contained in this repostiory:
 - Example implementation of [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) using [Unity's "Mecanim" Animation system](https://docs.unity3d.com/Manual/AnimationOverview.html).
 
 ### [Input](Assets/Input)
-- Example code for [Unity's InputSystem package](https://docs.unity3d.com/Packages/com.unity.inputsystem).
+- Example code for [Unity's InputSystem package](https://docs.unity3d.com/Manual/com.unity.inputsystem.html).
 
 ### [LINQ](Assets/LINQ)
 - Basic [LINQ](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/) examples.
