@@ -20,5 +20,8 @@ These are the projects contained in this repostiory:
 ### [LINQ](Assets/LINQ)
 - Basic [LINQ](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/) examples.
 
+### [ShaderGraph](Assets/ShaderGraph)
+- Different examples for water shading using [Unity's Shader Graph](https://unity.com/features/shader-graph).
+
 ## Third Party Credits
 - [Slothsoft's Unity Extensions](https://openupm.com/packages/net.slothsoft.unity-extensions/)
