@@ -597,7 +597,6 @@ MonoBehaviour:
   jumpSpeed: 10
   movementSpeed: 15
   accelerationDuration: 0.1
-  maxPosition: 10
   dragVelocity: {x: 0, y: 0, z: 0}
   dragDuration: 1
   velocity: {x: 0, y: 0, z: 0}
@@ -930,7 +929,6 @@ MonoBehaviour:
   jumpSpeed: 10
   movementSpeed: 15
   accelerationDuration: 0.1
-  maxPosition: 10
   dragVelocity: {x: 0, y: 0, z: 0}
   dragDuration: 1
   velocity: {x: 0, y: 0, z: 0}

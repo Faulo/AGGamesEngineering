@@ -1,32 +1,34 @@
 using UnityEngine;
 
-public class CharacterCreator : MonoBehaviour {
-    [SerializeField]
-    string type = "avatar";
-    [SerializeField]
-    float speed = 1;
-    [SerializeField]
-    bool useOverrideTransform = false;
-    [SerializeField]
-    Transform overrideTransform = default;
+namespace AGGE.CleanCode {
+    public class CharacterCreator : MonoBehaviour {
+        [SerializeField]
+        string type = "avatar";
+        [SerializeField]
+        float speed = 1;
+        [SerializeField]
+        bool useOverrideTransform = false;
+        [SerializeField]
+        Transform overrideTransform = default;
 
-    ICharacter behaviour;
+        ICharacter behaviour;
 
-    // Start is called before the first frame update
-    protected void Awake() {
-        behaviour = CharacterFactory.CreateCharacter(type, transform);
-        behaviour.speed = speed;
-        if (useOverrideTransform) {
-            behaviour.transform = overrideTransform;
+        // Start is called before the first frame update
+        protected void Awake() {
+            behaviour = CharacterFactory.CreateCharacter(type, transform);
+            behaviour.speed = speed;
+            if (useOverrideTransform) {
+                behaviour.transform = overrideTransform;
+            }
         }
-    }
 
-    protected void Start() {
-        behaviour.Start();
-    }
+        protected void Start() {
+            behaviour.Start();
+        }
 
-    // Update is called once per frame
-    protected void Update() {
-        behaviour.Update();
+        // Update is called once per frame
+        protected void Update() {
+            behaviour.Update();
+        }
     }
 }

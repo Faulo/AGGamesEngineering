@@ -1,111 +1,99 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class AvatarRigidbody : MonoBehaviour
-{
-    [SerializeField]
-    private Rigidbody attachedRigidbody;
-    [SerializeField]
-    private ControlScheme scheme = ControlScheme.Velocity;
-    [SerializeField, Range(0, 100)]
-    private float jumpSpeed = 5;
-    [SerializeField, Range(0, 100)]
-    private float movementSpeed = 5;
-    [SerializeField, Range(0, 10)]
-    private float accelerationDuration = 1;
-    [SerializeField, Range(0, 100)]
-    private float maxPosition = 10;
+namespace AGGE.CharacterController {
+    public class AvatarRigidbody : MonoBehaviour {
+        [SerializeField]
+        Rigidbody attachedRigidbody;
+        [SerializeField]
+        ControlScheme scheme = ControlScheme.Velocity;
+        [SerializeField, Range(0, 100)]
+        float jumpSpeed = 5;
+        [SerializeField, Range(0, 100)]
+        float movementSpeed = 5;
+        [SerializeField, Range(0, 10)]
+        float accelerationDuration = 1;
 
-    [Header("Drag")]
-    [SerializeField]
-    private Vector3 dragVelocity = Vector3.zero;
-    [SerializeField, Range(0, 10)]
-    private float dragDuration = 1;
-    private Vector3 dragAcceleration;
+        [Header("Drag")]
+        [SerializeField]
+        Vector3 dragVelocity = Vector3.zero;
+        [SerializeField, Range(0, 10)]
+        float dragDuration = 1;
+        Vector3 dragAcceleration;
 
-    private void OnValidate()
-    {
-        if (!attachedRigidbody)
-        {
-            TryGetComponent(out attachedRigidbody);
+        void OnValidate() {
+            if (!attachedRigidbody) {
+                TryGetComponent(out attachedRigidbody);
+            }
         }
-    }
 
-    private Vector2 movement;
-    private bool isJumping;
-    [SerializeField]
-    private Vector3 velocity;
-    private Vector3 acceleration;
+        Vector2 movement;
+        bool isJumping;
+        [SerializeField]
+        Vector3 velocity;
+        Vector3 acceleration;
 
-    private void Update()
-    {
-        movement = Gamepad.current.leftStick.ReadValue();
-        isJumping = Gamepad.current.aButton.isPressed;
-    }
+        void Update() {
+            movement = Gamepad.current.leftStick.ReadValue();
+            isJumping = Gamepad.current.aButton.isPressed;
+        }
 
-    private void FixedUpdate()
-    {
-        switch (scheme)
-        {
-            case ControlScheme.Position:
-                break;
-            case ControlScheme.Velocity:
-                Vector3 targetVelocity = new Vector3(
-                    movement.x * movementSpeed,
-                    attachedRigidbody.velocity.y,
-                    movement.y * movementSpeed
-                );
-                attachedRigidbody.velocity = Vector3.SmoothDamp(attachedRigidbody.velocity, targetVelocity, ref acceleration, accelerationDuration);
-                attachedRigidbody.velocity = Vector3.SmoothDamp(attachedRigidbody.velocity, dragVelocity, ref dragAcceleration, dragDuration);
-                if (isJumping && Mathf.Approximately(transform.position.y, 0))
-                {
-                    attachedRigidbody.velocity = new Vector3(
-                        attachedRigidbody.velocity.x,
-                        jumpSpeed,
-                        attachedRigidbody.velocity.z
+        void FixedUpdate() {
+            switch (scheme) {
+                case ControlScheme.Position:
+                    break;
+                case ControlScheme.Velocity:
+                    var targetVelocity = new Vector3(
+                        movement.x * movementSpeed,
+                        attachedRigidbody.velocity.y,
+                        movement.y * movementSpeed
                     );
-                }
-                break;
-            case ControlScheme.Acceleration:
-                //attachedRigidbody.AddForce(Physics.gravity, ForceMode.);
-                break;
-            default:
-                break;
+                    attachedRigidbody.velocity = Vector3.SmoothDamp(attachedRigidbody.velocity, targetVelocity, ref acceleration, accelerationDuration);
+                    attachedRigidbody.velocity = Vector3.SmoothDamp(attachedRigidbody.velocity, dragVelocity, ref dragAcceleration, dragDuration);
+                    if (isJumping && Mathf.Approximately(transform.position.y, 0)) {
+                        attachedRigidbody.velocity = new Vector3(
+                            attachedRigidbody.velocity.x,
+                            jumpSpeed,
+                            attachedRigidbody.velocity.z
+                        );
+                    }
+                    break;
+                case ControlScheme.Acceleration:
+                    //attachedRigidbody.AddForce(Physics.gravity, ForceMode.);
+                    break;
+                default:
+                    break;
+            }
         }
-    }
 
-    private void OnTriggerStay(Collider collider)
-    {
-        if (collider.TryGetComponent<DragSource>(out DragSource drag))
-        {
-            dragVelocity = drag.velocity;
+        void OnTriggerStay(Collider collider) {
+            if (collider.TryGetComponent<DragSource>(out var drag)) {
+                dragVelocity = drag.velocity;
+            }
         }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        dragVelocity = Vector3.zero;
-    }
+        void OnTriggerExit(Collider other) {
+            dragVelocity = Vector3.zero;
+        }
 
-    private void AddForce(Vector3 value, ForceMode mode)
-    {
-        switch (mode)
-        {
-            case ForceMode.VelocityChange:
-                // [v] = m / s
-                attachedRigidbody.velocity += value;
-                return;
-            case ForceMode.Acceleration:
-                // [a] = m / s²
-                AddForce(value * Time.deltaTime, ForceMode.VelocityChange);
-                return;
-            case ForceMode.Impulse:
-                // [I] = m * kg / s
-                AddForce(value / attachedRigidbody.mass, ForceMode.VelocityChange);
-                return;
-            case ForceMode.Force:
-                // [F] = m * kg / s²
-                AddForce(value * Time.deltaTime / attachedRigidbody.mass, ForceMode.VelocityChange);
-                return;
+        void AddForce(Vector3 value, ForceMode mode) {
+            switch (mode) {
+                case ForceMode.VelocityChange:
+                    // [v] = m / s
+                    attachedRigidbody.velocity += value;
+                    return;
+                case ForceMode.Acceleration:
+                    // [a] = m / s²
+                    AddForce(value * Time.deltaTime, ForceMode.VelocityChange);
+                    return;
+                case ForceMode.Impulse:
+                    // [I] = m * kg / s
+                    AddForce(value / attachedRigidbody.mass, ForceMode.VelocityChange);
+                    return;
+                case ForceMode.Force:
+                    // [F] = m * kg / s²
+                    AddForce(value * Time.deltaTime / attachedRigidbody.mass, ForceMode.VelocityChange);
+                    return;
+            }
         }
     }
 }

@@ -1,7 +1,8 @@
 ﻿
-internal enum ControlScheme
-{
-    Position,
-    Velocity,
-    Acceleration,
+namespace AGGE.CharacterController {
+    public enum ControlScheme {
+        Position,
+        Velocity,
+        Acceleration,
+    }
 }

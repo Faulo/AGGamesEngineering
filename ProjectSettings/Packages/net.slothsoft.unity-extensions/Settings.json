@@ -6,7 +6,22 @@
             {
                 "type": "Slothsoft.UnityExtensions.Editor.PackageSettings.CSharpSettings, Slothsoft.UnityExtensions.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "m_expandableSettings",
-                "value": "{\"m_Value\":{\"addNamespaceToCSharpFiles\":true,\"rewriteProjectFiles\":true,\"projectFileSettings\":[]}}"
+                "value": "{\"m_Value\":{\"addNamespaceToCSharpFiles\":true,\"rewriteProjectFiles\":true,\"projectFileSettings\":[{\"affectedAssemblies\":[{\"fileID\":5897886265953266890,\"guid\":\"908c9cd3bb312304fa37de4950f1a47d\",\"type\":3},{\"fileID\":5897886265953266890,\"guid\":\"ccb81a234b1c7ca478602554cfa47e91\",\"type\":3},{\"fileID\":5897886265953266890,\"guid\":\"a9397b8918a40704ea0cbe1321f1e863\",\"type\":3},{\"fileID\":5897886265953266890,\"guid\":\"c7c8058941334614aab5dad777a83258\",\"type\":3},{\"fileID\":5897886265953266890,\"guid\":\"60f1800a1d7467b49b0526adbc5d6b46\",\"type\":3},{\"fileID\":5897886265953266890,\"guid\":\"805f662cc1a9b3545b5696290ad86aa0\",\"type\":3},{\"fileID\":5897886265953266890,\"guid\":\"5f5173f10f8246c4189f35555ae16550\",\"type\":3},{\"fileID\":5897886265953266890,\"guid\":\"7c908461dbf904d40bc794dc8a13e9df\",\"type\":3},{\"fileID\":5897886265953266890,\"guid\":\"d4ac884e53faca045a81e80f1c619707\",\"type\":3},{\"fileID\":5897886265953266890,\"guid\":\"4c9529d4b2f002a4f845d71554201a9f\",\"type\":3},{\"fileID\":5897886265953266890,\"guid\":\"cd43207c99fd87243a7cb9cad125f316\",\"type\":3}],\"setCSharpVersionTo\":\"8.0\",\"m_setWarningLevelTo\":4}]}}"
+            },
+            {
+                "type": "Slothsoft.UnityExtensions.Editor.PackageSettings.ExpandableSettings, Slothsoft.UnityExtensions.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                "key": "m_expandableSettings",
+                "value": "{\"m_Value\":{\"showSourceFile\":true,\"innerSpacing\":4,\"outerSpacing\":2,\"backgroundStyle\":1,\"darkenColor\":{\"r\":0.0,\"g\":0.0,\"b\":0.0,\"a\":0.20000000298023225},\"lightenColor\":{\"r\":1.0,\"g\":1.0,\"b\":1.0,\"a\":0.20000000298023225}}}"
+            },
+            {
+                "type": "Slothsoft.UnityExtensions.Editor.RenderPipelineConversionSettings, Slothsoft.UnityExtensions.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                "key": "m_expandableSettings",
+                "value": "{\"m_Value\":{\"directionalLightIntensityMultiplier\":5.0,\"pointLightIntensityMultiplier\":30.0,\"lightIntensityProperty\":\"m_Intensity\"}}"
+            },
+            {
+                "type": "Slothsoft.UnityExtensions.Editor.PackageSettings.PrefabUtilsSettings, Slothsoft.UnityExtensions.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                "key": "m_expandableSettings",
+                "value": "{\"m_Value\":{\"assetsFolder\":\"Assets/\",\"prefabExtension\":\".prefab\"}}"
             }
         ]
     }
