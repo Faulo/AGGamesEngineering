@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/UniversalRenderPipeline/Scenes/SampleScene.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
+    path: Assets/VisualEffectsGraph/Scenes/AudioParticles.unity
+    guid: 003e958e49ae19a47884fb1e323079b2
   m_configObjects: {}

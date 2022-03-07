@@ -25,7 +25,7 @@ namespace AGGE.LINQ {
 
         int randomPosition => Random.Range(0, 10);
 
-        void Start() {
+        protected void Start() {
             for (int i = 0; i < count; i++) {
                 var instance = CreateInstance();
                 instances.Add(instance);
