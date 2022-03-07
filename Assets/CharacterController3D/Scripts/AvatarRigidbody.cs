@@ -21,7 +21,7 @@ namespace AGGE.CharacterController3D {
         float dragDuration = 1;
         Vector3 dragAcceleration;
 
-        void OnValidate() {
+        protected void OnValidate() {
             if (!attachedRigidbody) {
                 TryGetComponent(out attachedRigidbody);
             }
@@ -33,12 +33,12 @@ namespace AGGE.CharacterController3D {
         Vector3 velocity;
         Vector3 acceleration;
 
-        void Update() {
+        protected void Update() {
             movement = Gamepad.current.leftStick.ReadValue();
             isJumping = Gamepad.current.aButton.isPressed;
         }
 
-        void FixedUpdate() {
+        protected void FixedUpdate() {
             switch (scheme) {
                 case ControlScheme.Position:
                     break;
@@ -66,12 +66,12 @@ namespace AGGE.CharacterController3D {
             }
         }
 
-        void OnTriggerStay(Collider collider) {
+        protected void OnTriggerStay(Collider collider) {
             if (collider.TryGetComponent<DragSource>(out var drag)) {
                 dragVelocity = drag.velocity;
             }
         }
-        void OnTriggerExit(Collider other) {
+        protected void OnTriggerExit(Collider other) {
             dragVelocity = Vector3.zero;
         }
 

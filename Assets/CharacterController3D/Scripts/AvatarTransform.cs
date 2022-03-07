@@ -29,12 +29,12 @@ namespace AGGE.CharacterController3D {
         Vector3 acceleration;
         bool isJumping;
 
-        void Update() {
+        protected void Update() {
             movement = Gamepad.current.leftStick.ReadValue();
             isJumping = Gamepad.current.aButton.isPressed;
         }
 
-        void FixedUpdate() {
+        protected void FixedUpdate() {
             dragVelocity = Vector3.zero;
             var colliders = Physics.OverlapBox(transform.position, transform.localScale / 2, transform.rotation, -1, QueryTriggerInteraction.Collide);
             if (colliders.Length > 0) {
