@@ -8,9 +8,11 @@ namespace AGGE.CleanCode {
         public Avatar(Transform transform, IMover mover = null) {
             this.transform = transform;
             if (mover == null) {
-                mover = transform.TryGetComponent<Rigidbody>(out var rigidbody)
-                    ? new RigidbodyMover { rigidbody = rigidbody }
-                    : new TransformMover { transform = transform };
+                if (transform.TryGetComponent<Rigidbody>(out var rigidbody)) {
+                    mover = new RigidbodyMover { rigidbody = rigidbody };
+                } else {
+                    mover = new TransformMover { transform = transform };
+                }
             }
             this.mover = mover;
         }

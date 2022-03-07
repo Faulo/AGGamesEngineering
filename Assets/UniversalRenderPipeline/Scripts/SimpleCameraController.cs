@@ -1,7 +1,6 @@
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
-
 using UnityEngine;
 
 namespace AGGE.UniversalRenderPipeline {
@@ -72,9 +71,8 @@ namespace AGGE.UniversalRenderPipeline {
         InputAction verticalMovementAction;
         InputAction lookAction;
         InputAction boostFactorAction;
-        bool mouseRightButtonPressed;
 
-        void Start() {
+        protected void Start() {
             var map = new InputActionMap("Simple Camera Controller");
 
             lookAction = map.AddAction("look", binding: "<Mouse>/delta");
@@ -109,7 +107,7 @@ namespace AGGE.UniversalRenderPipeline {
 
 #endif
 
-        void OnEnable() {
+        protected void OnEnable() {
             m_TargetCameraState.SetFromTransform(transform);
             m_InterpolatingCameraState.SetFromTransform(transform);
         }
@@ -150,7 +148,7 @@ namespace AGGE.UniversalRenderPipeline {
             return direction;
         }
 
-        void Update() {
+        protected void Update() {
             // Exit Sample
 
             if (IsEscapePressed()) {
@@ -173,7 +171,7 @@ namespace AGGE.UniversalRenderPipeline {
 
             // Rotation
             if (IsCameraRotationAllowed()) {
-                var mouseMovement = GetInputLookRotation() * Time.deltaTime * 5;
+                var mouseMovement = 5 * Time.deltaTime * GetInputLookRotation();
                 if (invertY) {
                     mouseMovement.y = -mouseMovement.y;
                 }
