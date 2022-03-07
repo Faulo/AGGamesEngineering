@@ -1,5 +1,5 @@
 {
-    "name": "AGGE.CharacterController",
+    "name": "AGGE.CharacterController3D",
     "rootNamespace": "",
     "references": [
         "GUID:507d80cf36f8258488bde8c39deefd3a",

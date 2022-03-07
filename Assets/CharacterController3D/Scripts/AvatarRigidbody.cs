@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace AGGE.CharacterController {
+namespace AGGE.CharacterController3D {
     public class AvatarRigidbody : MonoBehaviour {
         [SerializeField]
         Rigidbody attachedRigidbody;
