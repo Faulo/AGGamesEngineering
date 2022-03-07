@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace AGGE.BestPractices {
+namespace AGGE.BestPractices.EditorTooling {
     public class InspectorStuff : MonoBehaviour {
 
         #region SerializeField and TryGetComponent

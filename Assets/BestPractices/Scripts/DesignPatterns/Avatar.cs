@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace AGGE.CleanCode {
+namespace AGGE.BestPractices.DesignPatterns {
     public class Avatar : ICharacter {
         public IMover mover { get; set; }
         public float speed { get; set; }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace AGGE.CleanCode {
+namespace AGGE.BestPractices.DesignPatterns {
     public interface ICharacter {
         public float speed { get; set; }
         public Transform transform { get; set; }

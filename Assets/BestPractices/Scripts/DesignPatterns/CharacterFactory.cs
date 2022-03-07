@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace AGGE.CleanCode {
+namespace AGGE.BestPractices.DesignPatterns {
     public class CharacterFactory {
         public static ICharacter CreateCharacter(string type, Transform transform) => type switch {
             "avatar" => new Avatar(transform),

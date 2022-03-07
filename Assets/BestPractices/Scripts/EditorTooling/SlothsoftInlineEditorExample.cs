@@ -4,7 +4,7 @@ using Slothsoft.UnityExtensions;
 using UnityEditor;
 #endif
 
-namespace AGGE.BestPractices {
+namespace AGGE.BestPractices.EditorTooling {
     public class SlothsoftInlineEditorExample : MonoBehaviour {
 
         void DoStuff() {

@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-namespace AGGE.BestPractices {
+namespace AGGE.BestPractices.EditorTooling {
     public class GenericInlineEditorExample : MonoBehaviour {
 
         void DoStuff() {

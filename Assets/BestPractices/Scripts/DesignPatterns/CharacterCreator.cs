@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace AGGE.CleanCode {
+namespace AGGE.BestPractices.DesignPatterns {
     public class CharacterCreator : MonoBehaviour {
         [SerializeField]
         string type = "avatar";
