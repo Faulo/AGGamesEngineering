@@ -1,169 +1,159 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
-public class DrawCurve : MonoBehaviour 
-{
-	public Transform target;
-	public float maxLength = 200;
-	public float interval = 0.3f;
-	public bool active = true;
-	public bool draw = true;
+namespace AGGE.CharacterController2D {
+    public class DrawCurve : MonoBehaviour {
+        public Transform target;
+        public float maxLength = 200;
+        public float interval = 0.3f;
+        public bool active = true;
+        public bool draw = true;
 
-	public Color startColor = Color.green;
-	public bool gradientColor = false;
-	public Color endColor = Color.red;
-	public bool bakeLine;
-	public LineRenderer line;
-	public LineRenderer lineRelease;
-	public LineRenderer lineVelocity;
-	public LineRenderer lineJump;
-	public float depth = 0.1f;
+        public Color startColor = Color.green;
+        public bool gradientColor = false;
+        public Color endColor = Color.red;
+        public bool bakeLine;
+        public LineRenderer line;
+        public LineRenderer lineRelease;
+        public LineRenderer lineVelocity;
+        public LineRenderer lineJump;
+        public float depth = 0.1f;
 
-	private List<Vector3> path = new List<Vector3>();	
-	private float timer;
+        List<Vector3> path = new List<Vector3>();
+        float timer;
 
-	public void OnEnable()
-	{
-		if(GameManager.instance)
-		{
-			bool showCurves = GameManager.instance.showCurves;
+        protected void OnEnable() {
+            if (GameManager.instance) {
+                bool showCurves = GameManager.instance.showCurves;
 
-			if(line)
-				line.enabled = showCurves;
-			
-			if(lineRelease)
-				lineRelease.enabled = showCurves;
-		}
-	}
+                if (line) {
+                    line.enabled = showCurves;
+                }
 
-	public void Clear()
-	{
-		path.Clear();
-	}
+                if (lineRelease) {
+                    lineRelease.enabled = showCurves;
+                }
+            }
+        }
 
-	void Update () 
-	{
-		if(!active)
-			return;
+        public void Clear() {
+            path.Clear();
+        }
 
-		timer -= Time.deltaTime;
+        protected void Update() {
+            if (!active) {
+                return;
+            }
 
-		if(timer <= 0)
-		{
-			timer = interval;
+            timer -= Time.deltaTime;
 
-			AddPoint();
-		}
+            if (timer <= 0) {
+                timer = interval;
 
-		bool showCurves = GameManager.instance.showCurves;
+                AddPoint();
+            }
 
-		if(line)
-			line.enabled = showCurves;
+            bool showCurves = GameManager.instance.showCurves;
 
-		if(lineRelease)
-			lineRelease.enabled = showCurves;
+            if (line) {
+                line.enabled = showCurves;
+            }
 
-		if(lineJump)
-			lineJump.enabled = showCurves;
-	}
+            if (lineRelease) {
+                lineRelease.enabled = showCurves;
+            }
 
-	public void AddPoint()
-	{
-		path.Add(target.position);
-		
-		int count = path.Count;
-		
-		if(count > maxLength)
-		{
-			path.RemoveAt(0);
-		}
-	}
+            if (lineJump) {
+                lineJump.enabled = showCurves;
+            }
+        }
 
-	public void SetJumpLine(Vector3 jumpPos)
-	{
-		if(lineJump)
-		{
-			lineJump.positionCount = 2;
-			Vector3 p1 = jumpPos + Vector3.down * 1f;
-			Vector3 p2 = jumpPos + Vector3.up * 1f;
-			
-			lineJump.SetPosition(0, p1);
-			lineJump.SetPosition(1, p2);
-		}
-	}
+        public void AddPoint() {
+            path.Add(target.position);
 
-	public void SetJumpReleaseLine(Vector3 jumpReleasePos, float size)
-	{
-		if(lineRelease)
-		{
-			lineJump.positionCount = 2;
-			Vector3 p1 = jumpReleasePos + Vector3.down * size;
-			Vector3 p2 = jumpReleasePos + Vector3.up * size;
+            int count = path.Count;
 
-			p1.z = depth;
-			p2.z = depth;
+            if (count > maxLength) {
+                path.RemoveAt(0);
+            }
+        }
 
-			lineRelease.SetPosition(0, p1);
-			lineRelease.SetPosition(1, p2);
-		}
-	}
+        public void SetJumpLine(Vector3 jumpPos) {
+            if (lineJump) {
+                lineJump.positionCount = 2;
+                var p1 = jumpPos + Vector3.down;
+                var p2 = jumpPos + Vector3.up;
 
-	public void SetVelocityLine(Vector3 velocityPos)
-	{
-		if(lineVelocity)
-		{
-			lineJump.positionCount = 2;
-			Vector3 p1 = velocityPos + Vector3.down * 1f;
-			Vector3 p2 = velocityPos + Vector3.up * 1f;
+                lineJump.SetPosition(0, p1);
+                lineJump.SetPosition(1, p2);
+            }
+        }
 
-			p1.z = depth;
-			p2.z = depth;
+        public void SetJumpReleaseLine(Vector3 jumpReleasePos, float size) {
+            if (lineJump && lineRelease) {
+                lineJump.positionCount = 2;
+                var p1 = jumpReleasePos + (Vector3.down * size);
+                var p2 = jumpReleasePos + (Vector3.up * size);
 
-			lineVelocity.SetPosition(0, p1);
-			lineVelocity.SetPosition(1, p2);
-		}
-	}
+                p1.z = depth;
+                p2.z = depth;
 
-	void OnDrawGizmos()
-	{
-		int count = path.Count;
+                lineRelease.SetPosition(0, p1);
+                lineRelease.SetPosition(1, p2);
+            }
+        }
 
-		if(count < 2)
-			return;
+        public void SetVelocityLine(Vector3 velocityPos) {
+            if (lineJump && lineVelocity) {
+                lineJump.positionCount = 2;
+                var p1 = velocityPos + Vector3.down;
+                var p2 = velocityPos + Vector3.up;
 
-		Vector3 currentPos;
+                p1.z = depth;
+                p2.z = depth;
 
-		if(draw)
-		{
-			Vector3 previousPos = path[0];
+                lineVelocity.SetPosition(0, p1);
+                lineVelocity.SetPosition(1, p2);
+            }
+        }
 
-			for(int i = 1; i < count; i++)
-			{
-				currentPos = path[i];
+        protected void OnDrawGizmos() {
+            int count = path.Count;
 
-				Color color = startColor;
+            if (count < 2) {
+                return;
+            }
 
-				if(gradientColor)
-					color = Color.Lerp(startColor, endColor, (float)i / count);
+            Vector3 currentPos;
 
-				Debug.DrawLine(previousPos, currentPos, color);
+            if (draw) {
+                var previousPos = path[0];
 
-				previousPos = currentPos;
-			}
-		}
+                for (int i = 1; i < count; i++) {
+                    currentPos = path[i];
 
-		if(!Application.isPlaying && line)
-		{
-			lineJump.positionCount = count;
+                    var color = startColor;
 
-			for (int i = 0; i < count; i++)
-			{
-				currentPos = path[i];
-				currentPos.z += depth;
+                    if (gradientColor) {
+                        color = Color.Lerp(startColor, endColor, (float)i / count);
+                    }
 
-				line.SetPosition(i, currentPos);
-			}
-		}
-	}
+                    Debug.DrawLine(previousPos, currentPos, color);
+
+                    previousPos = currentPos;
+                }
+            }
+
+            if (!Application.isPlaying && lineJump && line) {
+                lineJump.positionCount = count;
+
+                for (int i = 0; i < count; i++) {
+                    currentPos = path[i];
+                    currentPos.z += depth;
+
+                    line.SetPosition(i, currentPos);
+                }
+            }
+        }
+    }
 }
