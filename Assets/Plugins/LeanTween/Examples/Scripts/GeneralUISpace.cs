@@ -21,8 +21,6 @@ public class GeneralUISpace : MonoBehaviour {
 	public RectTransform chatBar2;
 	public UnityEngine.UI.Text chatText;
 
-	public RectTransform rawImageRect;
-
 	void Start () {
 		// Time.timeScale = 1f/4f;
 		
@@ -81,9 +79,6 @@ public class GeneralUISpace : MonoBehaviour {
 		LeanTween.value(gameObject, 0, (float)origText.Length, 6f).setEase(LeanTweenType.easeOutQuad).setOnUpdate( (float val)=>{
 			chatText.text = origText.Substring( 0, Mathf.RoundToInt( val ) );
 		}).setLoopClamp().setDelay(2.0f);
-
-		// Raw Image
-		LeanTween.alpha(rawImageRect,0f,1f).setLoopPingPong();
 	}
 
 }
