@@ -1030,6 +1030,75 @@ MonoBehaviour:
   cubeLayer:
     serializedVersion: 2
     m_Bits: 256
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.1353758
+      value: 0.7085093
+      inSlope: -0.04754098
+      outSlope: -0.04754098
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.39241832
+      value: 0.1886639
+      inSlope: -0.22746532
+      outSlope: -0.22746532
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5696844
+      value: 0.50682044
+      inSlope: -1.1203905
+      outSlope: -1.1203905
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.67940193
+      value: 0.20538387
+      inSlope: -0.6014063
+      outSlope: -0.6014063
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.83305836
+      value: 0.29671714
+      inSlope: -1.2539747
+      outSlope: -1.2539747
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.99450684
+      value: -0.03155899
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &1946167531
 MonoBehaviour:
   m_ObjectHideFlags: 0

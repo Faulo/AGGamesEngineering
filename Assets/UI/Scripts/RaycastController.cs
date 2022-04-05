@@ -30,18 +30,35 @@ namespace AGGE.UI {
         protected void Start() {
         }
 
+        [SerializeField]
+        AnimationCurve curve;
+
         GameObject selectedGameObject {
             get => selectedGameObjectCache;
             set {
                 if (selectedGameObjectCache != value) {
                     if (selectedGameObjectCache) {
-                        selectedGameObjectCache.GetComponent<Renderer>().material.SetColor("_BaseColor", Color.gray);
+                        //selectedGameObjectCache.GetComponent<Renderer>().material.SetColor("_BaseColor", Color.gray);
+                        LeanTween.cancel(selectedGameObjectCache);
+                        LeanTween.color(selectedGameObjectCache, Color.gray, 0.1f);
+
+                        // wiggle
+                        
+                        LeanTween.scale(selectedGameObjectCache, 2*Vector3.one, 0.5f)
+                            .setEase(curve);
+
+
                         selectedGameObjectCache.GetComponent<Rigidbody>().isKinematic = false;
                     }
                     selectedGameObjectCache = value;
                     if (selectedGameObjectCache) {
-                        selectedGameObjectCache.GetComponent<Renderer>().material.SetColor("_BaseColor", Color.green);
+                        //selectedGameObjectCache.GetComponent<Renderer>().material.SetColor("_BaseColor", Color.green);
+                        LeanTween.cancel(selectedGameObjectCache);
+                        LeanTween.color(selectedGameObjectCache, Color.green, 0.2f);
                         selectedGameObjectCache.GetComponent<Rigidbody>().isKinematic = true;
+
+                        LeanTween.scale(selectedGameObjectCache, Vector3.one, 0.5f)
+                            .setEase(curve);
                     }
                 }
             }
