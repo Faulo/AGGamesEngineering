@@ -1,0 +1,16 @@
+{
+    "name": "LeanTween.Examples",
+    "rootNamespace": "",
+    "references": [
+        "GUID:d45653845816e5b4a87e39355a2b1c5d"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
