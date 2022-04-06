@@ -1,12 +1,10 @@
 {
-    "name": "AGGE.UI",
-    "rootNamespace": "AGGE.UI",
-    "references": [
-        "GUID:6055be8ebefd69e48b49212b09b47b2f",
-        "GUID:75469ad4d38634e559750d17036d5f7c",
-        "GUID:d45653845816e5b4a87e39355a2b1c5d"
+    "name": "LeanTween.Editor",
+    "rootNamespace": "",
+    "references": [],
+    "includePlatforms": [
+        "Editor"
     ],
-    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
