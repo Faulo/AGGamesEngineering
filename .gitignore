@@ -4,6 +4,9 @@ ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
 
+# == Mac ==
+.DS_Store
+
 # == Use opt-in instead of opt-out for root folder ==
 /*
 /*/

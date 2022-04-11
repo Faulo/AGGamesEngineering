@@ -8,11 +8,20 @@ These are the projects contained in this repostiory:
 - Examples of good editor tooling.
 - Examples of design patterns.
 
-### [Character Controller](Assets/CharacterController)
+### [2D Character Controller](Assets/CharacterController3D)
+- The jumping prototype by Martin Fasterholdt for his thesis [You Say Jump, I Say How High](http://www.digra.org/digital-library/publications/you-say-jump-i-say-how-high-operationalising-the-game-feel-of-jumping/).
+- It contains re-implementations for the character controllers of:
+  - Super Mario Bros. 3 (Nintendo 1988)
+  - Spelunky (Mossmouth 2008)
+  - Braid (Number None 2008)
+  - Super Meat Boy (Team Meat 2010)
+  - Limbo (Playdead 2010)
+
+### [3D Character Controller](Assets/CharacterController3D)
 - Different approaches for implementing a basic character controller:
-  - The [Transform](https://docs.unity3d.com/ScriptReference/Transform.html) component.
-  - The [Rigidbody](https://docs.unity3d.com/ScriptReference/Rigidbody.html) component.
-  - The [CharacterController](https://docs.unity3d.com/ScriptReference/CharacterController.html) component.
+  - Via the [Transform](https://docs.unity3d.com/ScriptReference/Transform.html) component.
+  - Via the [Rigidbody](https://docs.unity3d.com/ScriptReference/Rigidbody.html) component.
+  - Via the [CharacterController](https://docs.unity3d.com/ScriptReference/CharacterController.html) component.
 
 ### [Cinemachine](Assets/Cinemachine)
 - [Cinemachine](https://docs.unity3d.com/Packages/com.unity.cinemachine@2.1/manual/index.html) examples for 2D projects.
