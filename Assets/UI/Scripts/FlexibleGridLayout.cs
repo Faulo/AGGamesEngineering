@@ -53,8 +53,8 @@ namespace AGGE.UI {
             //float cellWidth = parentWidth / columns - (spacing.x / columns * (columns - 1)) - (padding.left / columns) - (padding.right / columns);
             //float cellHeight = parentHeight / rows - (spacing.y / rows * (rows - 1)) - (padding.top / rows) - (padding.bottom / rows);
 
-            float cellWidth = (parentWidth - padding.left - padding.right - spacing.x * (columns - 1)) / columns;
-            float cellHeight = (parentHeight - padding.top - padding.bottom - spacing.y * (rows - 1)) / rows;
+            float cellWidth = (parentWidth - padding.left - padding.right - (spacing.x * (columns - 1))) / columns;
+            float cellHeight = (parentHeight - padding.top - padding.bottom - (spacing.y * (rows - 1))) / rows;
 
             cellSize.x = fitX ? cellWidth : cellSize.x;
             cellSize.y = fitY ? cellHeight : cellSize.y;
