@@ -163,7 +163,6 @@ namespace AGGE.CharacterController2D {
                 visuals.position = pastPos;
             } else {
                 //Interpolate visuals
-                float dt = Time.deltaTime;
                 float timeFraction = (Time.time - dt - pastTime) / dt;
                 var nextPos = pastPos + ((previousPos - pastPos) * timeFraction);
                 visuals.position = nextPos;
