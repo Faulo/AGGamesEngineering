@@ -43,8 +43,8 @@ namespace AGGE.UI {
                         LeanTween.color(selectedGameObjectCache, Color.gray, 0.1f);
 
                         // wiggle
-                        
-                        LeanTween.scale(selectedGameObjectCache, 2*Vector3.one, 0.5f)
+
+                        LeanTween.scale(selectedGameObjectCache, 2 * Vector3.one, 0.5f)
                             .setEase(curve);
 
 
