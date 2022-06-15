@@ -98,7 +98,8 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: 5478a7f46e7de9645b39b361c532e3b0, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 14cc835f711c2a24b8c13b0e01fce952,
+    type: 2}
 --- !u!196 &5
 NavMeshSettings:
   serializedVersion: 2
@@ -1150,12 +1151,14 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 69bbd49338caa46d0a29036dd5a1f5ad, type: 3}
 --- !u!4 &587259858 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400004, guid: 69bbd49338caa46d0a29036dd5a1f5ad, type: 3}
+  m_CorrespondingSourceObject: {fileID: 400004, guid: 69bbd49338caa46d0a29036dd5a1f5ad,
+    type: 3}
   m_PrefabInstance: {fileID: 587259857}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &587259859 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 11400000, guid: 69bbd49338caa46d0a29036dd5a1f5ad, type: 3}
+  m_CorrespondingSourceObject: {fileID: 11400000, guid: 69bbd49338caa46d0a29036dd5a1f5ad,
+    type: 3}
   m_PrefabInstance: {fileID: 587259857}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -2127,12 +2130,14 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: cb6cbae440acc4629bfb240de23bf4d4, type: 3}
 --- !u!4 &734015183 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400002, guid: cb6cbae440acc4629bfb240de23bf4d4, type: 3}
+  m_CorrespondingSourceObject: {fileID: 400002, guid: cb6cbae440acc4629bfb240de23bf4d4,
+    type: 3}
   m_PrefabInstance: {fileID: 734015182}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &734015184 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 11400000, guid: cb6cbae440acc4629bfb240de23bf4d4, type: 3}
+  m_CorrespondingSourceObject: {fileID: 11400000, guid: cb6cbae440acc4629bfb240de23bf4d4,
+    type: 3}
   m_PrefabInstance: {fileID: 734015182}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -2246,7 +2251,8 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: cb6cbae440acc4629bfb240de23bf4d4, type: 3}
 --- !u!114 &973583404 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 11400000, guid: cb6cbae440acc4629bfb240de23bf4d4, type: 3}
+  m_CorrespondingSourceObject: {fileID: 11400000, guid: cb6cbae440acc4629bfb240de23bf4d4,
+    type: 3}
   m_PrefabInstance: {fileID: 973583403}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -2257,7 +2263,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!4 &973583405 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400002, guid: cb6cbae440acc4629bfb240de23bf4d4, type: 3}
+  m_CorrespondingSourceObject: {fileID: 400002, guid: cb6cbae440acc4629bfb240de23bf4d4,
+    type: 3}
   m_PrefabInstance: {fileID: 973583403}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &999751641
@@ -2307,7 +2314,8 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 270036158531941fa9e5d5447fd0ed3f, type: 3}
 --- !u!114 &999751642 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 11400000, guid: 270036158531941fa9e5d5447fd0ed3f, type: 3}
+  m_CorrespondingSourceObject: {fileID: 11400000, guid: 270036158531941fa9e5d5447fd0ed3f,
+    type: 3}
   m_PrefabInstance: {fileID: 999751641}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -2318,7 +2326,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!4 &999751643 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400002, guid: 270036158531941fa9e5d5447fd0ed3f, type: 3}
+  m_CorrespondingSourceObject: {fileID: 400002, guid: 270036158531941fa9e5d5447fd0ed3f,
+    type: 3}
   m_PrefabInstance: {fileID: 999751641}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1031045375
@@ -2813,12 +2822,14 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: cb6cbae440acc4629bfb240de23bf4d4, type: 3}
 --- !u!4 &1080469972 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400002, guid: cb6cbae440acc4629bfb240de23bf4d4, type: 3}
+  m_CorrespondingSourceObject: {fileID: 400002, guid: cb6cbae440acc4629bfb240de23bf4d4,
+    type: 3}
   m_PrefabInstance: {fileID: 1080469971}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1080469973 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 11400000, guid: cb6cbae440acc4629bfb240de23bf4d4, type: 3}
+  m_CorrespondingSourceObject: {fileID: 11400000, guid: cb6cbae440acc4629bfb240de23bf4d4,
+    type: 3}
   m_PrefabInstance: {fileID: 1080469971}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -4248,12 +4259,14 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: cb6cbae440acc4629bfb240de23bf4d4, type: 3}
 --- !u!4 &1681207368 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400002, guid: cb6cbae440acc4629bfb240de23bf4d4, type: 3}
+  m_CorrespondingSourceObject: {fileID: 400002, guid: cb6cbae440acc4629bfb240de23bf4d4,
+    type: 3}
   m_PrefabInstance: {fileID: 1681207367}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1681207369 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 11400000, guid: cb6cbae440acc4629bfb240de23bf4d4, type: 3}
+  m_CorrespondingSourceObject: {fileID: 11400000, guid: cb6cbae440acc4629bfb240de23bf4d4,
+    type: 3}
   m_PrefabInstance: {fileID: 1681207367}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -4807,12 +4820,14 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: cb6cbae440acc4629bfb240de23bf4d4, type: 3}
 --- !u!4 &1923901629 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400002, guid: cb6cbae440acc4629bfb240de23bf4d4, type: 3}
+  m_CorrespondingSourceObject: {fileID: 400002, guid: cb6cbae440acc4629bfb240de23bf4d4,
+    type: 3}
   m_PrefabInstance: {fileID: 1923901628}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1923901630 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 11400000, guid: cb6cbae440acc4629bfb240de23bf4d4, type: 3}
+  m_CorrespondingSourceObject: {fileID: 11400000, guid: cb6cbae440acc4629bfb240de23bf4d4,
+    type: 3}
   m_PrefabInstance: {fileID: 1923901628}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
