@@ -38,8 +38,6 @@ namespace Coroutines.Scripts {
 
             if (Input.GetKeyDown(KeyCode.L)) {
                 Debug.Log(currentCo);
-                Debug.Log(currentCo == null);
-                Debug.Log(currentCo is null);
             }
         }
 

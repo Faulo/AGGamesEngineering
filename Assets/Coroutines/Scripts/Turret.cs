@@ -13,6 +13,9 @@ namespace Coroutines.Scripts {
 
         protected void Start() {
             spawnCoroutine = StartCoroutine(Spawn_Co());
+
+            StartCoroutine(ActionAfterSeconds_Co(Spawn, 1));
+
         }
 
         protected void Update() {
@@ -23,12 +26,9 @@ namespace Coroutines.Scripts {
 
         private IEnumerator Spawn_Co() {
             while (true) {
-                yield return new WaitUntil(()=> canSpawn);
+                yield return new WaitUntil(() => canSpawn);
                 yield return HeatUp_Co();
-                yield return ActionAfterSeconds_Co(()=> {
-                    Spawn();
-                    Debug.Log("Spawn");
-                }, 1f);
+                yield return ActionAfterSeconds_Co(() => Spawn(), 1f);
                 yield return CoolDown_Co();
             }
         }
@@ -46,11 +46,9 @@ namespace Coroutines.Scripts {
             Debug.Log("Finished cooling down!");
         }
 
-        private void Spawn()
-        {
+        private void Spawn() {
             var obj = Instantiate(objectToSpawn, transform.position, Quaternion.identity);
-            if (obj.TryGetComponent(out Rigidbody rb))
-            {
+            if (obj.TryGetComponent(out Rigidbody rb)) {
                 rb.AddForce(spawnForce, ForceMode.VelocityChange);
             }
             Debug.Log("Spawned Bullet");
