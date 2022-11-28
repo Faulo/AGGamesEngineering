@@ -25,7 +25,10 @@ namespace Coroutines.Scripts {
             while (true) {
                 yield return new WaitUntil(()=> canSpawn);
                 yield return HeatUp_Co();
-                Spawn();
+                yield return ActionAfterSeconds_Co(()=> {
+                    Spawn();
+                    Debug.Log("Spawn");
+                }, 1f);
                 yield return CoolDown_Co();
             }
         }
@@ -33,6 +36,7 @@ namespace Coroutines.Scripts {
         private IEnumerator HeatUp_Co() {
             Debug.Log("Started heating up!");
             yield return new WaitForSeconds(heatUpInSeconds);
+            yield return new WaitUntil(() => canSpawn);
             Debug.Log("Finished heating up!");
         }
 
@@ -50,6 +54,15 @@ namespace Coroutines.Scripts {
                 rb.AddForce(spawnForce, ForceMode.VelocityChange);
             }
             Debug.Log("Spawned Bullet");
+        }
+
+
+
+
+
+        private IEnumerator ActionAfterSeconds_Co(Action action, float delay) {
+            yield return new WaitForSeconds(delay);
+            action();
         }
     }
 }
