@@ -1,7 +1,9 @@
 {
     "name": "AGGE.DoTween",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:748d2996344d15544bf86f4e9f25979e"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
