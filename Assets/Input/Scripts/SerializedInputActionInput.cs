@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace AGGE.Input {
-    sealed class IntermediateInput : InputBase {
+    public sealed class SerializedInputActionInput : InputBase {
         [SerializeField]
         InputAction jumpAction = default;
         [SerializeField]
@@ -20,10 +20,7 @@ namespace AGGE.Input {
 
         void Update() {
             isPressed = jumpAction.phase == InputActionPhase.Started;
-
-            var velocity = moveAction.ReadValue<Vector2>();
-
-            referencedObject.transform.Translate(velocity * Time.deltaTime);
+            velocity = moveAction.ReadValue<Vector2>();
         }
     }
 }
