@@ -19,7 +19,7 @@ namespace AGGE.Input {
             referencedActionAsset.Disable();
         }
 
-        void Update() {
+        protected override void ProcessInput() {
             isPressed = referencedActionAsset[nameof(PlayerActions.Jump)].phase is InputActionPhase.Started or InputActionPhase.Performed;
             velocity = referencedActionAsset["Move"].ReadValue<Vector2>();
         }

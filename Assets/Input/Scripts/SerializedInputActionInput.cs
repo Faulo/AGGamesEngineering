@@ -18,8 +18,8 @@ namespace AGGE.Input {
             moveAction.Disable();
         }
 
-        void Update() {
-            isPressed = jumpAction.phase == InputActionPhase.Started;
+        protected override void ProcessInput() {
+            isPressed = jumpAction.phase is InputActionPhase.Started or InputActionPhase.Performed;
             velocity = moveAction.ReadValue<Vector2>();
         }
     }

@@ -33,11 +33,13 @@ namespace AGGE.Input {
         }
 
         void OnFly(InputAction.CallbackContext context) {
-            isPressed = context.phase == InputActionPhase.Performed;
+            isPressed = context.phase is InputActionPhase.Started or InputActionPhase.Performed;
         }
 
         void OnMove(InputAction.CallbackContext context) {
             velocity = context.ReadValue<Vector2>();
         }
+
+        protected override void ProcessInput() { }
     }
 }

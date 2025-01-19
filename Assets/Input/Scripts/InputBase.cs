@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 
 namespace AGGE.Input {
-    public abstract class InputBase : MonoBehaviour {
+    public abstract class InputBase : MonoBehaviour, IUpdateModeMessages {
         [SerializeField]
         internal GameObject referencedObject = default;
         [SerializeField]
@@ -40,7 +40,32 @@ namespace AGGE.Input {
         internal Vector2 velocity;
 
         protected virtual void FixedUpdate() {
+            TryProcessUpdate(EUpdateMode.FixedUpdate);
+
             referencedObject.transform.Translate(velocity.SwizzleXY() * Time.deltaTime);
         }
+
+        protected virtual void Update() {
+            TryProcessUpdate(EUpdateMode.Update);
+        }
+
+        protected virtual void LateUpdate() {
+            TryProcessUpdate(EUpdateMode.LateUpdate);
+        }
+
+        [SerializeField]
+        EUpdateMode mode = EUpdateMode.Update;
+
+        public void OnUpdateMode(EUpdateMode mode) {
+            this.mode = mode;
+        }
+
+        void TryProcessUpdate(EUpdateMode mode) {
+            if (this.mode.HasFlag(mode)) {
+                ProcessInput();
+            }
+        }
+
+        protected abstract void ProcessInput();
     }
 }

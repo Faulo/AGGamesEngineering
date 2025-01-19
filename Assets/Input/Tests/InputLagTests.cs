@@ -1,22 +1,26 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
 using Unity.PerformanceTesting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.Rendering;
 using UnityEngine.TestTools;
 using UnityObject = UnityEngine.Object;
 
 namespace AGGE.Input.Tests {
-    [TestFixture(typeof(NullInput))]
-    [TestFixture(typeof(InstantiatedInputAssetEventInput))]
-    [TestFixture(typeof(DirectDeviceInput))]
-    [TestFixture(typeof(SerializedInputActionInput))]
-    [TestFixture(typeof(ReferencedInputActionAssetInput))]
-    [TestFixture(typeof(InstantiatedInputAssetPhaseInput))]
+    [TestFixture]
     [RequiresPlayMode]
-    sealed class InputLagTests<T> where T : MonoBehaviour {
+    sealed class InputLagTest {
+
+        enum TestState {
+            Initialized,
+            SendingInput,
+            AwaitingMovement,
+            Finished,
+        }
 
         GameObject camera;
 
@@ -30,40 +34,56 @@ namespace AGGE.Input.Tests {
 
         int startingFrameCount;
         int deltaFrames;
-        bool hasMoved;
+
+        TestState state;
+
+        readonly bool useFixture = true;
 
         void ActivateInput() {
+            if (state != TestState.SendingInput) {
+                return;
+            }
+
+            state = TestState.AwaitingMovement;
+
             startingFrameCount = Time.frameCount;
             startingPosition = entity.transform.position;
-            hasMoved = false;
 
             InputSystem.Update();
             Assert.That(keyboard.spaceKey.isPressed, Is.False);
 
-            input.Press(keyboard.spaceKey);
+            if (useFixture) {
+                input.Press(keyboard.spaceKey);
+            } else {
+                StateEvent.From(keyboard, out var eventPtr);
+                keyboard.spaceKey.WriteValueIntoEvent(1f, eventPtr);
+                InputSystem.QueueEvent(eventPtr);
+            }
 
             InputSystem.Update();
             Assert.That(keyboard.spaceKey.isPressed, Is.True);
         }
 
         void RenderCamera() {
+            if (state != TestState.AwaitingMovement) {
+                return;
+            }
+
             if (entity.transform.position != startingPosition) {
                 deltaFrames = Time.frameCount - startingFrameCount;
-                hasMoved = true;
+                state = TestState.Finished;
             }
         }
 
-        // Built-In
-        void OnCameraPreRender(Camera camera) {
-            if (camera.gameObject == this.camera) {
-                RenderCamera();
-            }
-        }
-
-        // SRP
         void OnCameraPreRender(ScriptableRenderContext context, Camera camera) {
             if (camera.gameObject == this.camera) {
                 RenderCamera();
+            }
+        }
+
+        void OnCameraPostRender(ScriptableRenderContext context, Camera camera) {
+            if (camera.gameObject == this.camera) {
+                ActivateInput();
             }
         }
 
@@ -77,12 +97,13 @@ namespace AGGE.Input.Tests {
 
             yield return null;
 
-            Camera.onPreRender += OnCameraPreRender;
             RenderPipelineManager.beginCameraRendering += OnCameraPreRender;
+            RenderPipelineManager.endCameraRendering += OnCameraPostRender;
 
             InputSystem.settings.updateMode = InputSettings.UpdateMode.ProcessEventsManually;
 
             keyboard = InputSystem.AddDevice<Keyboard>();
+            InputSystem.Update();
 
             Assert.That(keyboard.enabled, Is.True);
             Assert.That(Keyboard.current, Is.EqualTo(keyboard));
@@ -90,8 +111,8 @@ namespace AGGE.Input.Tests {
 
         [UnityTearDown]
         public IEnumerator UnityTearDown() {
-            Camera.onPreRender -= OnCameraPreRender;
             RenderPipelineManager.beginCameraRendering -= OnCameraPreRender;
+            RenderPipelineManager.endCameraRendering -= OnCameraPostRender;
 
             InputSystem.RemoveDevice(keyboard);
 
@@ -112,37 +133,34 @@ namespace AGGE.Input.Tests {
             yield return null;
         }
 
-        [Test]
-        public void TestInputFixture() {
-            InputSystem.Update();
-
-            Assert.That(keyboard.spaceKey.isPressed, Is.False);
-
-            input.Press(keyboard.spaceKey);
-            InputSystem.Update();
-
-            Assert.That(keyboard.spaceKey.isPressed, Is.True);
-        }
+        [TestCase(typeof(NullInput), EUpdateMode.None, ExpectedResult = null)]
+        [TestCase(typeof(InstantiatedInputAssetEventInput), EUpdateMode.FixedUpdate, ExpectedResult = null)]
+        [TestCase(typeof(InstantiatedInputAssetEventInput), EUpdateMode.Update, ExpectedResult = null)]
+        [TestCase(typeof(InstantiatedInputAssetEventInput), EUpdateMode.LateUpdate, ExpectedResult = null)]
+        [TestCase(typeof(InstantiatedInputAssetPhaseInput), EUpdateMode.FixedUpdate, ExpectedResult = null)]
+        [TestCase(typeof(InstantiatedInputAssetPhaseInput), EUpdateMode.Update, ExpectedResult = null)]
+        [TestCase(typeof(InstantiatedInputAssetPhaseInput), EUpdateMode.LateUpdate, ExpectedResult = null)]
         [UnityTest]
         [Performance]
-        public IEnumerator MeasureInputLag() {
+        public IEnumerator MeasureInputLag(Type type, EUpdateMode mode) {
             camera = new GameObject(nameof(Camera));
             camera.AddComponent<Camera>();
 
-            entity = new GameObject(typeof(T).Name);
-            entity.AddComponent<T>();
+            entity = new GameObject(type.Name);
+            entity.AddComponent(type);
+            entity.SendMessage(nameof(IUpdateModeMessages.OnUpdateMode), mode, SendMessageOptions.DontRequireReceiver);
 
             yield return null;
 
-            ActivateInput();
+            state = TestState.SendingInput;
 
             int timeout = Time.frameCount + 10;
 
-            while (!hasMoved && Time.frameCount < timeout) {
+            while (state != TestState.Finished && Time.frameCount < timeout) {
                 yield return null;
             }
 
-            Assert.That(hasMoved, Is.True, $"{entity} never moved!");
+            Assert.That(state, Is.EqualTo(TestState.Finished), $"{entity} never moved!");
 
             Measure.Custom("Input Lag", deltaFrames);
         }
