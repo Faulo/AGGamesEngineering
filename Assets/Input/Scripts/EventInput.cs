@@ -2,17 +2,12 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace AGGE.Input {
-    public class EventInput : MonoBehaviour {
-        [SerializeField]
-        GameObject referencedObject = default;
-        [SerializeField]
-        Material darkMaterial = default;
-        [SerializeField]
-        Material lightMaterial = default;
-
+    sealed class EventInput : InputBase {
         ExpertInputAsset controls;
+
         Vector2 velocity;
-        protected void OnEnable() {
+
+        void OnEnable() {
             controls = new ExpertInputAsset();
             controls.Player.Fly.started += OnFly;
             controls.Player.Fly.performed += OnFly;
@@ -22,22 +17,19 @@ namespace AGGE.Input {
             controls.Player.Move.canceled += OnMove;
             controls.Enable();
         }
-        protected void OnDisable() {
+        void OnDisable() {
             controls.Disable();
         }
 
         void OnFly(InputAction.CallbackContext context) {
-            bool isPressed = context.phase == InputActionPhase.Performed;
-
-            referencedObject.GetComponent<Renderer>().sharedMaterial = isPressed
-                ? lightMaterial
-                : darkMaterial;
+            isPressed = context.phase == InputActionPhase.Performed;
         }
 
         void OnMove(InputAction.CallbackContext context) {
             velocity = context.ReadValue<Vector2>();
         }
-        protected void Update() {
+
+        void Update() {
             referencedObject.transform.Translate(velocity * Time.deltaTime);
         }
     }
