@@ -1,4 +1,5 @@
-﻿using Slothsoft.UnityExtensions;
+﻿using System.Collections;
+using Slothsoft.UnityExtensions;
 using TMPro;
 using UnityEngine;
 
@@ -18,6 +19,34 @@ namespace AGGE.Input {
 
             if (transform.TryGetComponentInChildren<TMP_Text>(out var text)) {
                 text.text = gameObject.name;
+            }
+
+            StartCoroutine(WaitForFixedUpdate_Co());
+            StartCoroutine(WaitForUpdate_Co());
+            StartCoroutine(WaitForEndOfFrame_Co());
+        }
+
+        IEnumerator WaitForFixedUpdate_Co() {
+            var wait = new WaitForFixedUpdate();
+            while (true) {
+                yield return wait;
+                TryProcessUpdate(EUpdateMode.WaitForFixedUpdate);
+            }
+        }
+
+        IEnumerator WaitForUpdate_Co() {
+            object wait = default;
+            while (true) {
+                yield return wait;
+                TryProcessUpdate(EUpdateMode.WaitForUpdate);
+            }
+        }
+
+        IEnumerator WaitForEndOfFrame_Co() {
+            var wait = new WaitForEndOfFrame();
+            while (true) {
+                yield return wait;
+                TryProcessUpdate(EUpdateMode.WaitForEndOfFrame);
             }
         }
 

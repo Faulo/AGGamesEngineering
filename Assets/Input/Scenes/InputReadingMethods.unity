@@ -154,6 +154,7 @@ MonoBehaviour:
   referencedObject: {fileID: 2041171160}
   darkMaterial: {fileID: 2100000, guid: aec92aaca0c422744894441e62316181, type: 2}
   lightMaterial: {fileID: 2100000, guid: 87f40127b6776e9418a8c301436dce6f, type: 2}
+  mode: 2
   referencedActionAsset: {fileID: -944628639613478452, guid: 7739b182d9b60974690f054d55184ef1, type: 3}
 --- !u!4 &31320179
 Transform:
@@ -411,6 +412,7 @@ MonoBehaviour:
   referencedObject: {fileID: 2118873574}
   darkMaterial: {fileID: 2100000, guid: aec92aaca0c422744894441e62316181, type: 2}
   lightMaterial: {fileID: 2100000, guid: 87f40127b6776e9418a8c301436dce6f, type: 2}
+  mode: 2
   jumpAction:
     m_Name: Jump
     m_Type: 0
@@ -620,6 +622,7 @@ MonoBehaviour:
   referencedObject: {fileID: 1202779481}
   darkMaterial: {fileID: 2100000, guid: aec92aaca0c422744894441e62316181, type: 2}
   lightMaterial: {fileID: 2100000, guid: 87f40127b6776e9418a8c301436dce6f, type: 2}
+  mode: 2
 --- !u!4 &1081439148
 Transform:
   m_ObjectHideFlags: 0
@@ -691,6 +694,14 @@ PrefabInstance:
     - target: {fileID: 3467493425154696185, guid: fe992a6d0dcac3446add0283cec9644d, type: 3}
       propertyPath: m_Name
       value: Cube
+      objectReference: {fileID: 0}
+    - target: {fileID: 4596641231855712268, guid: fe992a6d0dcac3446add0283cec9644d, type: 3}
+      propertyPath: m_fontSize
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4596641231855712268, guid: fe992a6d0dcac3446add0283cec9644d, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -857,6 +868,7 @@ MonoBehaviour:
   referencedObject: {fileID: 643780147}
   darkMaterial: {fileID: 2100000, guid: aec92aaca0c422744894441e62316181, type: 2}
   lightMaterial: {fileID: 2100000, guid: 87f40127b6776e9418a8c301436dce6f, type: 2}
+  mode: 2
 --- !u!4 &1519118560
 Transform:
   m_ObjectHideFlags: 0
@@ -976,6 +988,7 @@ MonoBehaviour:
   referencedObject: {fileID: 1774700080}
   darkMaterial: {fileID: 2100000, guid: aec92aaca0c422744894441e62316181, type: 2}
   lightMaterial: {fileID: 2100000, guid: 87f40127b6776e9418a8c301436dce6f, type: 2}
+  mode: 2
 --- !u!4 &2003977815
 Transform:
   m_ObjectHideFlags: 0

@@ -134,12 +134,13 @@ namespace AGGE.Input.Tests {
         }
 
         [TestCase(typeof(NullInput), EUpdateMode.None, ExpectedResult = null)]
-        [TestCase(typeof(InstantiatedInputAssetEventInput), EUpdateMode.FixedUpdate, ExpectedResult = null)]
-        [TestCase(typeof(InstantiatedInputAssetEventInput), EUpdateMode.Update, ExpectedResult = null)]
-        [TestCase(typeof(InstantiatedInputAssetEventInput), EUpdateMode.LateUpdate, ExpectedResult = null)]
+        [TestCase(typeof(InstantiatedInputAssetEventInput), EUpdateMode.None, ExpectedResult = null)]
         [TestCase(typeof(InstantiatedInputAssetPhaseInput), EUpdateMode.FixedUpdate, ExpectedResult = null)]
         [TestCase(typeof(InstantiatedInputAssetPhaseInput), EUpdateMode.Update, ExpectedResult = null)]
         [TestCase(typeof(InstantiatedInputAssetPhaseInput), EUpdateMode.LateUpdate, ExpectedResult = null)]
+        [TestCase(typeof(InstantiatedInputAssetPhaseInput), EUpdateMode.WaitForFixedUpdate, ExpectedResult = null)]
+        [TestCase(typeof(InstantiatedInputAssetPhaseInput), EUpdateMode.WaitForUpdate, ExpectedResult = null)]
+        [TestCase(typeof(InstantiatedInputAssetPhaseInput), EUpdateMode.WaitForEndOfFrame, ExpectedResult = null)]
         [UnityTest]
         [Performance]
         public IEnumerator MeasureInputLag(Type type, EUpdateMode mode) {
